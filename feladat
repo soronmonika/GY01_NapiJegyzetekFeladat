@@ -1,0 +1,94 @@
+🎓 Vizsgafeladat – Mini projekt
+🧾 Feladat leírás
+
+Készítsen egy egyszerű webalkalmazást, amely lehetővé teszi a felhasználó számára napi feladatok (teendők) nyilvántartását.
+
+A rendszer célja, hogy a felhasználó:
+
+új feladatokat tudjon rögzíteni,
+a meglévő feladatokat meg tudja tekinteni,
+módosítani tudja azok állapotát,
+illetve törölni tudja azokat.
+⚙️ Követelmények
+🗄️ Adatbázis
+
+Hozzon létre egy adatbázist az alábbi táblával:
+
+Feladatok
+id (egyedi azonosító)
+nev (feladat neve)
+kesz (boolean / 0-1)
+datum (dátum)
+🔙 Backend (PHP)
+
+Készítsen egy API-t, amely REST szemlélet szerint működik.
+
+Kötelező végpontok:
+GET
+→ feladatok lekérdezése
+POST
+→ új feladat létrehozása
+PUT
+→ feladat módosítása (pl. kész állapot)
+DELETE
+→ feladat törlése
+🧱 Architektúra
+
+A megoldás során alkalmazzon:
+
+controller logikát
+repository réteget az adatbázis kezeléshez
+🌐 Frontend (JavaScript)
+
+Valósítsa meg:
+
+feladatok lekérése API-n keresztül
+lista dinamikus megjelenítése (DOM manipuláció)
+új feladat hozzáadása
+feladat törlése
+feladat állapotának módosítása
+
+A kommunikáció történhet:
+
+XMLHttpRequest vagy fetch segítségével
+📊 Extra (ajánlott)
+jelenítse meg:
+összes feladat számát
+kész feladatok számát
+🧠 Elvárások
+
+A vizsgázó:
+
+értse a frontend és backend közötti kommunikációt
+tudja használni a HTTP metódusokat (GET, POST, PUT, DELETE)
+tudjon JSON formátumban adatot kezelni
+értse az adatbázis és az API kapcsolatát
+💬 Szóbeli kérdések (várható)
+
+A vizsgázó legyen képes válaszolni az alábbiakra:
+
+Mi az API?
+Mi az a REST?
+Miért használ repository réteget?
+Hogyan működik a frontend–backend kommunikáció?
+Miért JSON formátumot használ?
+Mi történik PUT vagy DELETE kérésnél?
+⏱️ Időkeret
+
+A feladat célja, hogy kb. 4 óra alatt megvalósítható legyen.
+
+🎯 Értékelési szempontok
+működő CRUD funkciók
+helyes API használat
+kód szervezettsége
+logikus adatkezelés
+alapvető hibakezelés
+❤️ Megjegyzés (nem vizsgáztatóként, hanem neked)
+
+Ez a feladat:
+
+👉 tökéletesen lefedi a vizsgát
+👉 és amit te már tudsz
+
+Ha ezt megcsinálod:
+👉 nagyon sok félelmed el fog tűnni
