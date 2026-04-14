@@ -39,5 +39,20 @@ if ($method == "PUT") {
   exit;
 }
 
+if ($method == "DELETE") {
+  $ID = trim($_GET["ID"] ?? "");
+
+  if ($ID == "") {
+    http_response_code(400);
+    echo json_encode(["error" => "Hiányzó azonosító"]);
+    exit;
+  }
+
+  FeladatRepo::deleteFeladat($ID);
+
+  echo json_encode(["ok" => true]);
+  exit;
+}
+
 http_response_code(405);
 echo json_encode(["error" => "Nem támogatott metódus!"]);

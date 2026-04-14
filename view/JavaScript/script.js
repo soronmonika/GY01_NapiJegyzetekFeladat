@@ -107,14 +107,54 @@ xhrFeladat.onreadystatechange = function () {
 
     tdModositas.appendChild(ModositasGomb);
 
+    //TÖRLÉS
+
+    let tdTorles = document.createElement("td");
+    let torlesGomb = document.createElement("button");
+
+    torlesGomb.className = "btn btn-danger btn-sm";
+    torlesGomb.innerText = "Törlés";
+
+    let ID = adat.ID;
+
+    torlesGomb.onclick = function () {
+
+      if (!confirm("Biztos törlöd a feladatot?"))
+        return;
+
+      let xhrDel = new XMLHttpRequest();
+      xhrDel.open("DELETE", "../api/feladatok.php?ID=" + encodeURIComponent(ID)); //encodeURIComponent=biztonságosan küldi az adatot url formátumban.
+
+      xhrDel.onreadystatechange = function () {
+        if (xhrDel.readyState != 4)
+          return;
+        if (xhrDel.status == 200) {
+          location.reload();
+        }
+        else {
+          alert("Törlés hiba: " + xhrDel.status);
+          console.log(xhrDel.responseText);
+        }
+        console.log(" torles id:", ID);
+      };
+      xhrDel.send(null);
+    };
+
+
+    tdTorles.appendChild(torlesGomb);
+
     //ÖSSZERAKÁS
     tr.appendChild(td1);
     tr.appendChild(td2);
     tr.appendChild(td3);
     tr.appendChild(tdModositas);
+    tr.appendChild(tdTorles);
 
     tbody.appendChild(tr);
   }
 
+
   document.getElementById("OsszesKesz").innerText = OsszesKesz + " db";
+
+
 };
