@@ -64,6 +64,8 @@
               <th>Név</th>
               <th>Dátum</th>
               <th>Kész</th>
+              <th>Módosítás</th>
+              <th>Törlés</th>
             </tr>
           </thead>
           <tbody id="Torzs"></tbody>

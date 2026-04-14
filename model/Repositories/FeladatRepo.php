@@ -68,4 +68,22 @@ class FeladatRepo
     $stmt->close();
     $con->close();
   }
+
+
+  public static function updateFeladatok(string $ID, string $Nev, string $Datum): void
+  {
+    $con = new mysqli("127.0.0.1", "root", "", "NapiFeladatok_SoronMonika");
+    if ($con->connect_error) {
+      throw new Exception("DB kapcsolat hiba: " . $con->connect_error);
+    }
+    $con->set_charset("utf8mb4");
+    $stmt = $con->prepare("UPDATE Feladatok SET Nev = ?, Datum= ? WHERE ID= ?");
+    if (!$stmt) throw new Exception("SQL prepare hiba: " . $con->error);
+
+    $stmt->bind_param("sss", $Nev, $Datum,  $ID);
+    if (!$stmt->execute()) throw new Exception(("SQL végrehajtási hiba: " . $stmt->error));
+
+    $stmt->close();
+    $con->close();
+  }
 }

@@ -1,0 +1,8 @@
+kész állapothoz:
+Amikor a felhasználó módosítja a kész állapotot, például átkapcsolja a switch-et, egy eseménykezelő fut le a frontend oldalon.
+Ez egy HTTP kérést indít az API felé, amely POST vagy PUT metódussal továbbítja az adatot a backendnek.
+
+A controller fogadja a kérést, és továbbítja a repository rétegnek, ahol egy SQL UPDATE művelettel módosítom az adatbázisban a feladat állapotát.
+
+Ezután az API JSON formátumban visszaküldi a választ, amit a frontend feldolgoz.
+A felhasználó ezt vizuálisan a switch állapotának változásában látja, és frissítés után is megmarad az állapot.
